@@ -1,0 +1,62 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.ufsc.ine5605.exe2;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author 00893917052
+ */
+public class Controlador {
+    
+    private Scanner teclado;
+    private ArrayList<Amigo> listaAmigos;
+    
+    public Controlador() {
+        teclado = new Scanner(System.in);
+        listaAmigos = new ArrayList();
+    }
+
+    public void inicia() {
+       System.out.println("Rodando");
+       
+       cadastraAmigo();
+       imprimeListaAmigos();
+    }
+
+    private void cadastraAmigo() {
+      System.out.println("#### inclusao de novo Amigo ####");
+      
+      Amigo amigo = new Amigo();
+      
+      System.out.println("Nome: ");
+      String nome = teclado.nextLine();
+      
+            System.out.println("Fone: ");
+      String fone = teclado.nextLine();
+      
+            System.out.println("Email: ");
+      String email = teclado.nextLine();
+      
+      amigo.setNome(nome);
+      amigo.setEmail(email);
+      amigo.setFone(fone);
+      
+      listaAmigos.add(amigo);
+      
+    }
+
+    private void imprimeListaAmigos() {
+      for(Amigo amigo : listaAmigos) {
+          System.out.println("Nome Amigo:" + amigo.getNome());
+          System.out.println("Fone Amigo:" + amigo.getFone());
+          System.out.println("Email amigo:" + amigo.getEmail());
+      }
+    }
+    
+}
