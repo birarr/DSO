@@ -1,0 +1,83 @@
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
+import java.util.ArrayList;
+
+public class ExemploEnum {
+
+    public static void main(String[] args) {
+
+        ArrayList<Cliente> clientes = new ArrayList<>();
+
+        Cliente cliente1 = new Cliente(1345, "Cliente 1", Cliente.ESPECIAL);
+        Cliente cliente2 = new Cliente(6789, "Cliente 2", Cliente.COMUM);
+        Cliente cliente3 = new Cliente(9999, "Cliente 3", Cliente.ESPECIAL);
+
+        clientes.add(cliente1);
+        clientes.add(cliente2);
+        clientes.add(cliente3);
+
+        for(Cliente cliente : clientes) {
+            if (cliente.getTipoCliente().equals("ESPECIAL")) {
+                System.out.println("Cliente: " + cliente.getNome() +" Pode vender com desconto");
+            } else if (cliente.getTipoCliente().equals(Cliente.COMUM)) {
+                System.out.println("Cliente: " + cliente.getNome() +" Pode vender com desconto");
+            } else if(cliente.getTipoCliente().equals(Cliente.DEVEDOR)) {
+                System.out.println("Cliente: " + cliente.getNome() + " Verifique saldo devedor");
+            }
+        }
+    }
+}
+
+
+------------------------
+
+import java.util.Arrays;
+
+public class Cliente {
+
+    private int cpf;
+    private String nome;
+    private String tipoCliente;
+
+    //constantes
+    public static final String ESPECIAL = "ESPECIAL";
+    public static final String COMUM = "COMUM";
+    public static final String DEVEDOR = "DEVEDOR";
+
+
+    public Cliente(int cpf, String nome, String tipoCliente) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.tipoCliente = tipoCliente;
+    }
+
+    public Cliente() {
+
+    }
+
+
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTipoCliente() {
+        return this.tipoCliente;
+    }
+
+    public void setTipoCliente(String tipoCliente) {
+        this.tipoCliente = tipoCliente;
+    }
+}
+
